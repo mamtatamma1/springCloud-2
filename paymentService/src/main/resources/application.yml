@@ -23,4 +23,5 @@ eureka:
     defaultZone: ${EUREKA_URI}
   instance:
     preferIpAddress: true
+    hostname: localhost
 
