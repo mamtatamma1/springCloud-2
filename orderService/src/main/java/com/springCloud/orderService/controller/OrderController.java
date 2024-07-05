@@ -5,13 +5,10 @@ import com.springCloud.orderService.entity.TransactionRequest;
 import com.springCloud.orderService.entity.TransactionResponse;
 import com.springCloud.orderService.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/orderService/v1/orders")
+@RequestMapping("/api/v1/orders")
 public class OrderController {
 
     @Autowired
@@ -20,6 +17,11 @@ public class OrderController {
     @PostMapping
     public TransactionResponse bookOrder(@RequestBody TransactionRequest transactionRequest){
         return orderService.saveOrder(transactionRequest);
+    }
+
+    @GetMapping
+    public String getOrder(){
+        return "Ordered";
     }
 
 }

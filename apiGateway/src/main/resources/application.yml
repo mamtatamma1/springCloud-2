@@ -1,0 +1,34 @@
+server:
+  port: 8083
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+#     http://localhost:8083/order-service/api/v1/orders
+      routes:
+        - id: ORDER-SERVICE
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/orders/**
+#     http://localhost:8083/payment-service/api/v1/payment/doPayment
+        - id: PAYMENT-SERVICE
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/v1/payment/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url.defaultZone: ${EUREKA_URI}
+  instance:
+    hostname: localhost
+

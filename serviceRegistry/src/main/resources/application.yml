@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: EUREKA-SERVER
+  cloud:
+    config:
+      import-check.enabled: false
 
 eureka:
   client:

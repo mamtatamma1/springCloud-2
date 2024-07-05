@@ -21,6 +21,11 @@ public class PaymentServiceImpl implements PaymentService {
         return paymentRepository.save(payment);
     }
 
+    @Override
+    public Payment findPaymentHistoryByOrderId(Integer orderId) {
+        return paymentRepository.findByOrderId(orderId);
+    }
+
     public String paymentProcessing(){
         return new Random().nextBoolean()?"success":"false";
     }

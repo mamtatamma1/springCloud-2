@@ -20,9 +20,7 @@ eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
-  serviceUrl:
-    defaultZone: ${EUREKA_URI}
+    service-url.defaultZone: ${EUREKA_URI}
   instance:
-    preferIpAddress: true
     hostname: localhost
 
