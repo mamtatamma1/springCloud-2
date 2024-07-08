@@ -24,3 +24,36 @@ eureka:
   instance:
     hostname: localhost
 
+#Circuitbreaker configuration
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+#Resilience4j configuration
+resilience4j:
+  circuitbreaker:
+    instances:
+      orderPaymentCB:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 5s
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+
+  retry:
+    instances:
+      orderPaymentRetry:
+        max-attempts: 3
+        wait-duration: 5s

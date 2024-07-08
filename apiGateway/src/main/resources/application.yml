@@ -12,13 +12,11 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-#     http://localhost:8083/order-service/api/v1/orders
       routes:
         - id: ORDER-SERVICE
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/api/v1/orders/**
-#     http://localhost:8083/payment-service/api/v1/payment/doPayment
         - id: PAYMENT-SERVICE
           uri: lb://PAYMENT-SERVICE
           predicates:
@@ -31,4 +29,10 @@ eureka:
     service-url.defaultZone: ${EUREKA_URI}
   instance:
     hostname: localhost
+
+
+
+
+
+
 
