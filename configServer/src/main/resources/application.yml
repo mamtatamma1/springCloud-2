@@ -9,7 +9,7 @@ spring:
       server:
         git:
           username: mamtatamma
-          password: ${SECRET_CODE}
+#          password: ${SECRET_CODE}
           uri: https://github.com/mamtatamma1/springCloud-2
           default-label: master
           clone-on-start: true
