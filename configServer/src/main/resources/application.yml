@@ -1,0 +1,34 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          username: mamtatamma
+          password: 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
+          uri: https://github.com/mamtatamma1/springCloud-2
+          default-label: master
+          clone-on-start: true
+  config:
+    import: optional:configServer:http://localhost:8085
+
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    refresh:
+      enabled: true
+
+
+
+
+

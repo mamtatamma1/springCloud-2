@@ -3,12 +3,14 @@ server:
 
 spring:
   application:
-    name: ORDER-SERVICE
+    name: order-service
   datasource:
     url: ${CONNECTION_URI}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: ${DRIVER_CLASS_NAME}
+  config:
+    import: optional:configserver:http://localhost:8085
 
   jpa:
     hibernate:
@@ -16,26 +18,26 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url.defaultZone: ${EUREKA_URI}
-  instance:
-    hostname: localhost
 
 #Circuitbreaker configuration
 management:
   health:
     circuitbreakers:
       enabled: true
+  endpoint:
+    refresh:
+      enabled: true
   endpoints:
     web:
       exposure:
-        include: health
-  endpoint:
-    health:
-      show-details: always
+        include: "*"
+
+security:
+  enabled: false
+
+endpoints:
+  sensitive: true
+#  endpoints:/: "*"
 
 #Resilience4j configuration
 resilience4j:
@@ -57,3 +59,4 @@ resilience4j:
       orderPaymentRetry:
         max-attempts: 3
         wait-duration: 5s
+

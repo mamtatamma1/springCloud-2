@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: PAYMENT-SERVICE
+    name: payment-service
   datasource:
     url: ${CONNECTION_URI}
     username: ${DB_USERNAME}
@@ -15,11 +15,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url.defaultZone: ${EUREKA_URI}
-  instance:
-    hostname: localhost
+  config:
+    import: optional:config-server:http://localhost:8085
 

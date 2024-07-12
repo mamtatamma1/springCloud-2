@@ -5,7 +5,7 @@ spring:
   main:
     web-application-type: reactive
   application:
-    name: API-GATEWAY
+    name: api-gateway
   cloud:
     gateway:
       discovery:
@@ -13,26 +13,11 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: ORDER-SERVICE
-          uri: lb://ORDER-SERVICE
+        - id: order-service
+          uri: lb://order-service
           predicates:
             - Path=/api/v1/orders/**
-        - id: PAYMENT-SERVICE
-          uri: lb://PAYMENT-SERVICE
+        - id: payment-service
+          uri: lb://payment-service
           predicates:
             - Path=/api/v1/payment/**
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url.defaultZone: ${EUREKA_URI}
-  instance:
-    hostname: localhost
-
-
-
-
-
-
-

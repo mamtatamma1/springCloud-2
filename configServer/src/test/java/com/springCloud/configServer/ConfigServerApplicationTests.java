@@ -1,10 +1,10 @@
-package com.springCloud.hystrixDashboard;
+package com.springCloud.configServer;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HystrixDashboardApplicationTests {
+class ConfigServerApplicationTests {
 
 	@Test
 	void contextLoads() {

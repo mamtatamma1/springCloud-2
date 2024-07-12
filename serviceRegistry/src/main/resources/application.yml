@@ -2,12 +2,14 @@ server:
   port: 8761
 spring:
   application:
-    name: EUREKA-SERVER
+    name: eureka-server
   cloud:
     config:
       import-check.enabled: false
 
 eureka:
+  instance.hostname: localhost
+  dashboard.path: /dashboard
   client:
     register-with-eureka: false
     fetch-registry: false
