@@ -8,8 +8,8 @@ spring:
     config:
       server:
         git:
-          username: mamtatamma
-          password: ${SECRET_CODE}
+          username: ${GIT_USERNAME}
+          password: ${GIT_SECRET_CODE}
           uri: https://github.com/mamtatamma1/springCloud-2
           default-label: master
           clone-on-start: true

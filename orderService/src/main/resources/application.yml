@@ -21,23 +21,17 @@ spring:
 
 #Circuitbreaker configuration
 management:
-  health:
-    circuitbreakers:
-      enabled: true
-  endpoint:
-    refresh:
-      enabled: true
   endpoints:
     web:
       exposure:
         include: "*"
+  endpoint:
+    refresh:
+      enabled: true
+  health:
+    circuitbreakers:
+      enabled: true
 
-security:
-  enabled: false
-
-endpoints:
-  sensitive: true
-#  endpoints:/: "*"
 
 #Resilience4j configuration
 resilience4j:

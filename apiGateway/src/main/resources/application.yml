@@ -21,3 +21,5 @@ spring:
           uri: lb://payment-service
           predicates:
             - Path=/api/v1/payment/**
+  config:
+    import: optional:configserver:http://localhost:8085
