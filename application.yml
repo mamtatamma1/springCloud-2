@@ -10,7 +10,7 @@ microservice:
   order-service:
     endpoints:
       endpoint:
-        uri: http://order-service/api/v1/orders-updated
+        uri: http://order-service/api/v1/orders
   payment-service:    
     endpoints:  
       endpoint:
